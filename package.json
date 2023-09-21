@@ -25,7 +25,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"type-check": "tsc",
-		"format": "prettier --write \"**/*.{css,js,json,jsx,ts,tsx,vue}\""
+		"format": "prettier --write \"**/*.{css,js,json,jsx,ts,tsx,vue}\"",
+    		"export": "next export"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.4.1",
