@@ -18,23 +18,24 @@ const ContentSecurityPolicy = `
  */
 const config = {
 	images: {
-		domains: [
-			// Discord assets
-			'cdn.discordapp.com',
+		unoptimized: true,
+		// domains: [
+		// 	// Discord assets
+		// 	'cdn.discordapp.com',
 
-			// GitHub assets
-			'raw.githubusercontent.com',
+		// 	// GitHub assets
+		// 	'raw.githubusercontent.com',
 
-			// Spotify Album Art
-			'i.scdn.co',
+		// 	// Spotify Album Art
+		// 	'i.scdn.co',
 
-			// Streamable thumbnails
-			'cdn-cf-east.streamable.com',
+		// 	// Streamable thumbnails
+		// 	'cdn-cf-east.streamable.com',
 
-			// Unsplash
-			'source.unsplash.com',
-			'images.unsplash.com',
-		],
+		// 	// Unsplash
+		// 	'source.unsplash.com',
+		// 	'images.unsplash.com',
+		// ],
 	},
 	// Inspired by: https://github.com/leerob/leerob.io/blob/main/next.config.js#L44-L81
 	async headers() {
@@ -67,58 +68,28 @@ const config = {
 			},
 		];
 	},
-	
-	const config = {
-	    reactStrictMode: true,
-	    swcMinify: true,
-	    images: {
-		unoptimized: true,
-	    },
-	    webpack: (config, { dev, isServer }) => {
+	reactStrictMode: true,
+	swcMinify: true,
+	webpack: (config, { dev, isServer }) => {
 		// TODO: Temp disabled as since upgrading `next` to v12.2.3 production builds fail & this seems to be the cause
 		// Replace React with Preact only in client production build
 		// if (!dev && !isServer) {
-		//      Object.assign(config.resolve.alias, {
-		//              react: 'preact/compat',
-		//              'react-dom/test-utils': 'preact/test-utils',
-		//              'react-dom': 'preact/compat',
-		//      });
+		// 	Object.assign(config.resolve.alias, {
+		// 		react: 'preact/compat',
+		// 		'react-dom/test-utils': 'preact/test-utils',
+		// 		'react-dom': 'preact/compat',
+		// 	});
 		// }
 
 		config.plugins.push(new WindiCSS());
 
 		config.module.rules.push({
-		    test: /\.(glsl|vs|fs|frag|vert)$/,
-		    use: ['ts-shader-loader'],
+			test: /\.(glsl|vs|fs|frag|vert)$/,
+			use: ['ts-shader-loader'],
 		});
 
 		return config;
-	    },
+	},
 };
 
-	module.exports = withAxiom(config)
-	// reactStrictMode: true,
-	// swcMinify: true,
-	// webpack: (config, { dev, isServer }) => {
-	// 	// TODO: Temp disabled as since upgrading `next` to v12.2.3 production builds fail & this seems to be the cause
-	// 	// Replace React with Preact only in client production build
-	// 	// if (!dev && !isServer) {
-	// 	// 	Object.assign(config.resolve.alias, {
-	// 	// 		react: 'preact/compat',
-	// 	// 		'react-dom/test-utils': 'preact/test-utils',
-	// 	// 		'react-dom': 'preact/compat',
-	// 	// 	});
-	// 	// }
-
-	// 	config.plugins.push(new WindiCSS());
-
-	// 	config.module.rules.push({
-	// 		test: /\.(glsl|vs|fs|frag|vert)$/,
-	// 		use: ['ts-shader-loader'],
-	// 	});
-
-	// 	return config;
-	// },
-// };
-
-// module.exports = withAxiom(config);
+module.exports = withAxiom(config);
