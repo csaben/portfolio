@@ -9,9 +9,11 @@
 </div>
 Credit to Ben Dixon.
 
-***
+---
 
-Mother of Learning AU Chapters:
+My general sentiment about this whole portfolio:
+
+From The Mother of Learning AU Chapters,
 
 "Divine magic, much like the inner mechanics of souls and the truth behind Bakora gates, were still a major mystery for Zorian. He couldn’t cast divine magic, but he could detect it. With some effort and a lot of trial and error, he was able to map out the internal workings of some divine artifacts and figure out how to crudely modify them. It involved breaking the artifacts and their corresponding divine magic mechanisms, and then combining some of the pieces into a new design.
 
