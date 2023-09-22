@@ -7,7 +7,9 @@
 [![Vercel](https://img.shields.io/badge/-powered%20by%20vercel-black.svg?logo=vercel&longCache=true&style=for-the-badge)](https://vercel.com/home?utm_source=nuro&utm_campaign=oss)
 
 </div>
-Crediit to Ben Dixon.
+Credit to Ben Dixon.
+
+***
 
 Mother of Learning AU Chapters:
 
