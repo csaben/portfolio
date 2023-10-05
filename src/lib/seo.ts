@@ -8,22 +8,23 @@ export function useSeoProps(
 ): Partial<ComponentProps<typeof NextSeo>> {
 	const router = useRouter();
 
-	const title = 'nuro ─ developer';
-	const description = "Hey 👋 I'm Ben, a developer";
+	const title = 'clark saben ─ portfolio';
+	const description = "Clark Saben Portfolio";
 
 	return {
 		title,
 		description,
-		canonical: `https://nuro.dev/${router.asPath}`,
+		// canonical: `https://nuro.dev/${router.asPath}`,
+		canonical: 'https://portfolio-v2-kappa-dun-71.vercel.app/',
 		openGraph: {
 			title,
 			description,
-			site_name: 'nuro',
-			url: `https://nuro.dev/${router.asPath}`,
+			site_name: 'Clark Saben Portfolio',
+			url: `https://portfolio-v2-kappa-dun-71.vercel.app/`,
 			type: 'website',
 			images: [
 				{
-					url: 'https://nuro.dev/banner.png',
+					url: 'https://github.com/csaben/csaben.github.io/blob/master/static/assets/portfoliov2.png',
 					alt: description,
 					width: 1280,
 					height: 720,
@@ -32,8 +33,8 @@ export function useSeoProps(
 		},
 		twitter: {
 			cardType: 'summary_large_image',
-			handle: '@nurodev',
-			site: '@nurodev',
+			handle: '@ClarkSaben',
+			site: '@ClarkSaben',
 		},
 		...props,
 	};
