@@ -26,7 +26,6 @@ Clone the repository
 
 ```zsh
 git clone https://github.com/csaben/portfolio.git
-/nurodev/nuro.dev.git
 ```
 
 Install dependencies
