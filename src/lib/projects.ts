@@ -13,33 +13,46 @@ import type { GitHubRepos, Project, ProjectPost } from '~/types';
  * @TODO Switch to v3 API using GraphQL to save over-fetching
  */
 export async function fetchProjects(): Promise<Array<Project> | null> {
-	const response = await fetch('https://api.github.com/users/csaben/repos', {
-		headers: {
-			...(process.env.GITHUB_PAT && {
-				authorization: `token ${process.env.GITHUB_PAT}`,
-			}),
-		},
-	});
-	if (response.status !== 200) {
-		const json = (await response.json()) as {
-			documentation_url: string;
-			message: string;
-		};
+	const gitHubUsernames = ['csaben', 'andarklabs'];
+	let allRepos = [];
 
-		console.error({ error: json });
-		log.error('Failed to fetch projects', {
-			error: json,
+	for (const username of gitHubUsernames) {
+		const response = await fetch(`https://api.github.com/users/${username}/repos`, {
+			headers: {
+				...(process.env.GITHUB_PAT && {
+					authorization: `token ${process.env.GITHUB_PAT}`,
+				}),
+			},
 		});
+		if (response.status !== 200) {
+			const json = (await response.json()) as {
+				documentation_url: string;
+				message: string;
+			};
 
-		return null;
-	}
+			console.error({ error: json });
+			log.error('Failed to fetch projects', {
+				error: json,
+			});
 
-	const json = (await response.json()) as GitHubRepos;
+			return null;
+		}
+		const json = (await response.json()) as GitHubRepos;
+		allRepos = allRepos.concat(json);
+	};
+	// const response = await fetch('https://api.github.com/users/csaben/repos', {
+	// 	headers: {
+	// 		...(process.env.GITHUB_PAT && {
+	// 			authorization: `token ${process.env.GITHUB_PAT}`,
+	// 		}),
+	// 	},
+	// });
+
 
 	const { default: rawProjectPosts } = await import('~/data/projects.json');
 	const projectPosts = rawProjectPosts as Array<ProjectPost>;
 
-	const projects: Array<Project> = json
+	const projects: Array<Project> = allRepos
 		.map((repo) => {
 			if (!repo.topics.includes('portfolio')) return null;
 

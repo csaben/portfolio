@@ -15,12 +15,12 @@ export function useSeoProps(
 		title,
 		description,
 		// canonical: `https://nuro.dev/${router.asPath}`,
-		canonical: 'clark.saben.org',
+		canonical: 'https://portfolio-v2-kappa-dun-71.vercel.app/',
 		openGraph: {
 			title,
 			description,
 			site_name: 'Clark Saben Portfolio',
-			url: `clark.saben.org`,
+			url: `https://portfolio-v2-kappa-dun-71.vercel.app/`,
 			type: 'website',
 			images: [
 				{
